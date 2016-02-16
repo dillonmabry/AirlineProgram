@@ -18,7 +18,13 @@ public class airplane {
 		}
 		int count = 1;
 		for(int j=0; j < 90; j++) {
-			economyClass.add(new Seat(count,"",0,""));
+			if(count%3 ==0) {
+				economyClass.add(new Seat(count,"",0,"aisle"));
+			} else if(count%3 == 1) {
+				economyClass.add(new Seat(count,"",0,"window"));
+			} else {
+				economyClass.add(new Seat(count,"",0,"center"));
+			}
 			count++;
 		}
 	}
@@ -66,9 +72,22 @@ public class airplane {
 	}
 	
 	public void printEconomyClassSeats() {
-		for(int i=0; i< economyClass.size(); i++) {
+//		for(int i=0; i< economyClass.size(); i++) {
+//			System.out.print("Seat class: Economy | "+"Seat number: "+economyClass.get(i).seatNum+" | "+
+//					" "+"taken: "+economyClass.get(i).isTaken+"Seat loc: "+economyClass.get(i).seatPref);
+//			System.out.println();
+//		}
+		System.out.println("Left Side of Plane (from TOP LEFT to BOTTOM RIGHT): \n");
+		for(int i=0; i< economyClass.size()/2; i++) {
 			System.out.print("Seat class: Economy | "+"Seat number: "+economyClass.get(i).seatNum+" | "+
-					" "+"taken: "+economyClass.get(i).isTaken);
+					" "+"taken: "+economyClass.get(i).isTaken+"Seat loc: "+economyClass.get(i).seatPref);
+			System.out.println();
+		}
+		System.out.println();
+		System.out.println("Right side of Plane (from TOP RIGHT TO BOTTOM LEFT): \n");
+		for(int i=45; i< economyClass.size(); i++) {
+			System.out.print("Seat class: Economy | "+"Seat number: "+economyClass.get(i).seatNum+" | "+
+					" "+"taken: "+economyClass.get(i).isTaken+"Seat loc: "+economyClass.get(i).seatPref);
 			System.out.println();
 		}
 	}

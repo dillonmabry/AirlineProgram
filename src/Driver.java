@@ -21,8 +21,42 @@ public class Driver {
 					continue;
 				}
 				switch (choice) {
+				
 				case 0:
-
+					Scanner input = new Scanner(System.in);
+					int classChoice, passChoice, pref;
+					System.out.print("Enter the class for passenger (0 for First, 1 for Economy): ");
+					classChoice = input.nextInt();			//class choice
+					if(classChoice < 0 || classChoice > 1) {
+						System.out.println("Please enter a choice between 0 and 1! Returning to menu.");
+						break;
+					} else if (classChoice == 0) {
+						System.out.print("Please enter number of passengers between 1 and 2: ");
+						passChoice = input.nextInt();			//num passengers
+						if(passChoice < 1 || passChoice > 2) {
+							System.out.println("Please enter a choice between 1 and 2! Returning to menu.");
+//							input.next();
+//							continue;
+							break;
+						} else if (passChoice == 1) {
+							System.out.print("Please enter seating preferences (0 for window, 1 for aisle): "); //add pref for 1 
+							pref = input.nextInt();
+							if(pref == 0) {
+								
+							} else {
+								
+							}
+						} else {
+															//add pref for 2
+						}
+//						plane.firstClassAddSeat(num, seatClass, numPass, pref);
+					} else {
+						
+					}
+					
+					
+					
+					
 					break;
 				case 1:
 					plane.printFirstClassSeats();
