@@ -30,27 +30,80 @@ public class Driver {
 					if(classChoice < 0 || classChoice > 1) {
 						System.out.println("Please enter a choice between 0 and 1! Returning to menu.");
 						break;
-					} else if (classChoice == 0) {
+					} else if (classChoice == 0) { //first class
 						System.out.print("Please enter number of passengers between 1 and 2: ");
 						passChoice = input.nextInt();			//num passengers
 						if(passChoice < 1 || passChoice > 2) {
 							System.out.println("Please enter a choice between 1 and 2! Returning to menu.");
-//							input.next();
-//							continue;
 							break;
 						} else if (passChoice == 1) {
 							System.out.print("Please enter seating preferences (0 for window, 1 for aisle): "); //add pref for 1 
 							pref = input.nextInt();
-							if(pref == 0) {
+							if(pref < 0 || pref > 1) {
+								System.out.println("Please enter a choice between 0 and 1! Returning to menu.");
+								break;
+							} else if(pref == 0) {
+								for(int i=0; i < plane.firstClass.size(); i++) {
+									if(plane.firstClass.get(i).getStatus() == false && plane.firstClass.get(i).getSeatPref().equals("window")) {
+										plane.firstClassAddSeat(String.valueOf(classChoice),passChoice,"window",plane.firstClass.get(i));
+										break;
+									} else {
+										System.out.println("Moving passenger to next available seat.");
+									}
+								}
 								
 							} else {
-								
+								for(int i=0; i < plane.firstClass.size(); i++) {
+									if(plane.firstClass.get(i).getStatus() == false && plane.firstClass.get(i).getSeatPref().equals("aisle")) {
+										plane.firstClassAddSeat(String.valueOf(classChoice),passChoice,"aisle",plane.firstClass.get(i));
+										break;
+									} else {
+										System.out.println("Moving passenger to next available seat.");
+									}
+								}
 							}
-						} else {
-															//add pref for 2
+								
+						} else {	//add pref for 2
+							System.out.print("Please enter seating preferences (0 for window, 1 for aisle): "); //add pref for 1 
+							pref = input.nextInt();
+							if(pref < 0 || pref > 1) {
+								System.out.println("Please enter a choice between 0 and 1! Returning to menu.");
+								break;
+							} else if(pref == 0) {
+								for(int i=0; i < plane.firstClass.size(); i++) {
+									if(plane.firstClass.get(i).getStatus() == false && plane.firstClass.get(i).getSeatPref().equals("window")) {
+										plane.firstClassAddSeat(String.valueOf(classChoice),passChoice,"window",plane.firstClass.get(i));
+										if(plane.firstClass.get(i+2).getStatus()==false) {
+											plane.firstClassAddSeat(String.valueOf(classChoice),passChoice,"window",plane.firstClass.get(i+2));
+										} else {
+											System.out.println("Moving passenger to next available seat.");
+										}
+										break;
+									} else {
+										System.out.println("Moving passenger to next available seat.");
+									}
+								}
+								
+							} else {
+								for(int i=0; i < plane.firstClass.size(); i++) {
+									if(plane.firstClass.get(i).getStatus() == false && plane.firstClass.get(i).getSeatPref().equals("aisle")) {
+										plane.firstClassAddSeat(String.valueOf(classChoice),passChoice,"aisle",plane.firstClass.get(i));
+										if(plane.firstClass.get(i+2).getStatus()==false) {
+											plane.firstClassAddSeat(String.valueOf(classChoice),passChoice,"aisle",plane.firstClass.get(i+2));
+										} else {
+											System.out.println("Moving passenger to next available seat.");
+										}
+										break;
+									} else {
+										System.out.println("Moving passenger to next available seat.");
+									}
+								}
+							}
+							
+							
 						}
 //						plane.firstClassAddSeat(num, seatClass, numPass, pref);
-					} else {
+					} else { //economy class
 						
 					}
 					

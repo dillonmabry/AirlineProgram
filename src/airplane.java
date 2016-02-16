@@ -29,8 +29,13 @@ public class airplane {
 		}
 	}
 	
-	public void firstClassAddSeat(int num, String seatClass, int numPass, String pref) {
-		firstClass.add(new Seat(num,seatClass,numPass,pref));
+	public void firstClassAddSeat(String seatClass, int numPass, String pref, Seat seat) {
+		
+		seat.setStatus(true);
+		seat.seatClass = seatClass;
+		seat.numPassengers = numPass;
+		seat.seatPref = pref;
+		
 //		if(seatClass.toLowerCase().equals("first")) {
 //			
 //			if(numPass < 1 || numPass > 2) {
@@ -58,14 +63,14 @@ public class airplane {
 		System.out.println("Left Side of Plane (from TOP LEFT to BOTTOM RIGHT): \n");
 		for(int i=0; i< firstClass.size()/2; i++) {
 			System.out.print("Seat class: First | "+"Seat number: "+firstClass.get(i).seatNum+" | "+
-					" "+"taken: "+firstClass.get(i).isTaken+"Seat loc: "+firstClass.get(i).seatPref);
+					" "+"taken: "+firstClass.get(i).isTaken+" | Seat loc: "+firstClass.get(i).seatPref);
 			System.out.println();
 		}
 		System.out.println();
 		System.out.println("Right side of Plane (from TOP RIGHT TO BOTTOM LEFT): \n");
 		for(int i=10; i< firstClass.size(); i++) {
 			System.out.print("Seat class: First | "+"Seat number: "+firstClass.get(i).seatNum+" | "+
-					" "+"taken: "+firstClass.get(i).isTaken+"Seat loc: "+firstClass.get(i).seatPref);
+					" "+"taken: "+firstClass.get(i).isTaken+" | Seat loc: "+firstClass.get(i).seatPref);
 			System.out.println();
 		}
 		
@@ -80,14 +85,14 @@ public class airplane {
 		System.out.println("Left Side of Plane (from TOP LEFT to BOTTOM RIGHT): \n");
 		for(int i=0; i< economyClass.size()/2; i++) {
 			System.out.print("Seat class: Economy | "+"Seat number: "+economyClass.get(i).seatNum+" | "+
-					" "+"taken: "+economyClass.get(i).isTaken+"Seat loc: "+economyClass.get(i).seatPref);
+					" "+"taken: "+economyClass.get(i).isTaken+" | Seat loc: "+economyClass.get(i).seatPref);
 			System.out.println();
 		}
 		System.out.println();
 		System.out.println("Right side of Plane (from TOP RIGHT TO BOTTOM LEFT): \n");
 		for(int i=45; i< economyClass.size(); i++) {
 			System.out.print("Seat class: Economy | "+"Seat number: "+economyClass.get(i).seatNum+" | "+
-					" "+"taken: "+economyClass.get(i).isTaken+"Seat loc: "+economyClass.get(i).seatPref);
+					" "+"taken: "+economyClass.get(i).isTaken+" | Seat loc: "+economyClass.get(i).seatPref);
 			System.out.println();
 		}
 	}
@@ -117,6 +122,14 @@ public class airplane {
 		
 		public int getNumber() {
 			return this.seatNum;
+		}
+		
+		public String getSeatPref() {
+			return this.seatPref;
+		}
+		
+		public void setSeatPref(String pref) {
+			this.seatPref = pref;
 		}
 		
 	} //end of Seat class
