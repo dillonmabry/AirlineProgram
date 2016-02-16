@@ -1,3 +1,4 @@
+/* Dillon Mabry Student ID: 800854402 */
 import java.util.ArrayList;
 
 public class airplane {
@@ -71,23 +72,6 @@ public class airplane {
 			System.out.println();
 		}
 	}
-	
-//	int[][] firstClassSeats = new int[20][2];
-//	
-//	
-//	public airplane(int[][] first) {
-//		this.firstClassSeats = first;
-//	}
-//	
-//	public void list() {
-//		for(int i=0; i < firstClassSeats.length; i++) {
-//			for(int j=0; j < firstClassSeats.length; j++) {
-//				System.out.println(firstClassSeats[i][j]);
-//			}
-//		}
-//	}
-
-
 
 	public class Seat {
 		private int seatNum;
@@ -116,6 +100,6 @@ public class airplane {
 			return this.seatNum;
 		}
 		
-		
-	}
-}
+	} //end of Seat class
+	
+} //end of airplane class
